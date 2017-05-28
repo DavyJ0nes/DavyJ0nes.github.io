@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Tech Life Balance</title>
-    <link>davyjones.me/post/</link>
+    <link>http://davyjones.me/post/</link>
     <description>Recent content in Posts on Tech Life Balance</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
     <lastBuildDate>Sun, 07 May 2017 14:13:28 +0100</lastBuildDate>
     
-	<atom:link href="davyjones.me/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://davyjones.me/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>On Burnout</title>
-      <link>davyjones.me/post/on-burnout/</link>
+      <link>http://davyjones.me/post/on-burnout/</link>
       <pubDate>Sun, 07 May 2017 14:13:28 +0100</pubDate>
       
-      <guid>davyjones.me/post/on-burnout/</guid>
+      <guid>http://davyjones.me/post/on-burnout/</guid>
       <description>Disclaimer  Before we get into this please be aware that this is all centered around my experiences and is published to hopefully be of help to other who may have gone through something similar (including future me ;) ). I am not a mental health expert.
  The Incident The Harvard Business Review describes burnout as a slow fizzle, generally it is not something that you are aware is happening until it blows up in your face.</description>
     </item>
     
     <item>
       <title>Teminal Not Functioning Error</title>
-      <link>davyjones.me/post/teminal-not-functioning-error/</link>
+      <link>http://davyjones.me/post/teminal-not-functioning-error/</link>
       <pubDate>Tue, 13 Oct 2015 23:00:20 +0100</pubDate>
       
-      <guid>davyjones.me/post/teminal-not-functioning-error/</guid>
+      <guid>http://davyjones.me/post/teminal-not-functioning-error/</guid>
       <description> Symptoms try and run a command and get this:
 WARNING: terminal is not fully functional  Cure It is to do with your TERM enviroment setting. Running echo $TERM will return something like screen-256color this needs to be changed. I have had success with the following:
 export TERM=ansi  You should also Change this in your .bashrc/.zshrc if after a reboot you get the same issue.
@@ -36,10 +36,10 @@ References  http://superuser.com/questions/575844/warning-terminal-is-not-fully-
     
     <item>
       <title>Creating a Private Package repository for Debian</title>
-      <link>davyjones.me/post/private-repo-debian/</link>
+      <link>http://davyjones.me/post/private-repo-debian/</link>
       <pubDate>Thu, 24 Sep 2015 12:04:06 +0100</pubDate>
       
-      <guid>davyjones.me/post/private-repo-debian/</guid>
+      <guid>http://davyjones.me/post/private-repo-debian/</guid>
       <description>Caveat
 A lot of this article was nicked from a brilliant Digital Ocean article.
 Go check out all their tutorials and while you&amp;rsquo;re there why not sign up!
@@ -50,10 +50,10 @@ This guide goes through how to set up a Debian flavoured package repository.</de
     
     <item>
       <title>Basic Guide to Using tmux</title>
-      <link>davyjones.me/post/how-to-user-tmux/</link>
+      <link>http://davyjones.me/post/how-to-user-tmux/</link>
       <pubDate>Thu, 10 Sep 2015 17:02:38 +0100</pubDate>
       
-      <guid>davyjones.me/post/how-to-user-tmux/</guid>
+      <guid>http://davyjones.me/post/how-to-user-tmux/</guid>
       <description>1. What is tmux? tmux is a terminal multiplexer!
 2. What is a terminal multiplexer? It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
 Effectively a shell within a shell. Or a Ghost in the shell?
