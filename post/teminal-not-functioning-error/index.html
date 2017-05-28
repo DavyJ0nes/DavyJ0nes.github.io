@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teminal Not Functioning Error -- Tech Life Balance</title>
+
+    
+
+    
+    <link href="davyjones.me/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="davyjones.me/css/clean-blog.min.css" rel="stylesheet">
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="davyjones.me">Tech Life Balance</a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="davyjones.me/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="davyjones.me/post/">blog</a>
+                    </li>
+                    
+                    <li>
+                        <a href="davyjones.me/cv">cv</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="intro-header" style="background-image: url('davyjones.me/img/post-bg.jpg')">
+    
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+             <div class="post-heading">
+               <h1>Teminal Not Functioning Error</h1>
+               <h2 class="subheading"></h2>
+               <span class="meta">
+                 
+  A 1 minute read,
+
+Posted by <a href="#">Davy Jones</a> on Tue, Oct 13, 2015
+<br />
+In <a href="davyjones.me/categories/how-to">How-To</a>
+
+<br />
+Tags <a href="davyjones.me/tags/term">term</a>, <a href="davyjones.me/tags/cli">cli</a>
+
+               </span>
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+
+    
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  
+
+<h3 id="symptoms">Symptoms</h3>
+
+<p>try and run a command and get this:</p>
+
+<pre><code>WARNING: terminal is not fully functional
+</code></pre>
+
+<h3 id="cure">Cure</h3>
+
+<p>It is to do with your TERM enviroment setting.
+Running <code>echo $TERM</code> will return something like <code>screen-256color</code> this needs to be changed. I have had success with the following:</p>
+
+<pre><code>export TERM=ansi
+</code></pre>
+
+<p>You should also Change this in your .bashrc/.zshrc if after a reboot you get the same issue.</p>
+
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="http://superuser.com/questions/575844/warning-terminal-is-not-fully-functional">http://superuser.com/questions/575844/warning-terminal-is-not-fully-functional</a></li>
+</ul>
+
+                  
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                    
+                      <li>
+                        <a href="mailto:davy.jones@me.com">
+                          <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                          </span>
+                        </a>
+                      </li>
+                    
+                    
+                    <li>
+                      <a href="https://twitter.com/opsdavy">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://github.com/davyj0nes">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                  <p class="copyright text-muted">Code released under the Apache 2.0 license.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="davyjones.me/js/jquery.min.js"></script>
+
+    
+    <script src="davyjones.me/js/bootstrap.min.js"></script>
+
+    
+    <script src="davyjones.me/js/clean-blog.js"></script>
+
+    
+
+</body>
+
+</html>
+

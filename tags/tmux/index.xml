@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tmux on Tech Life Balance</title>
+    <link>davyjones.me/tags/tmux/</link>
+    <description>Recent content in Tmux on Tech Life Balance</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Code released under the Apache 2.0 license.</copyright>
+    <lastBuildDate>Thu, 10 Sep 2015 17:02:38 +0100</lastBuildDate>
+    
+	<atom:link href="davyjones.me/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Basic Guide to Using tmux</title>
+      <link>davyjones.me/post/how-to-user-tmux/</link>
+      <pubDate>Thu, 10 Sep 2015 17:02:38 +0100</pubDate>
+      
+      <guid>davyjones.me/post/how-to-user-tmux/</guid>
+      <description>1. What is tmux? tmux is a terminal multiplexer!
+2. What is a terminal multiplexer? It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+Effectively a shell within a shell. Or a Ghost in the shell?
+3. Why should I care? Say you are SSH&amp;rsquo;d into a box and want to run a process that you know will have to run for a long time and you do not want to get interuppted by say your SSH session closing.</description>
+    </item>
+    
+  </channel>
+</rss>

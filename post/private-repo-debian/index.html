@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creating a Private Package repository for Debian -- Tech Life Balance</title>
+
+    
+
+    
+    <link href="davyjones.me/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="davyjones.me/css/clean-blog.min.css" rel="stylesheet">
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="davyjones.me">Tech Life Balance</a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="davyjones.me/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="davyjones.me/post/">blog</a>
+                    </li>
+                    
+                    <li>
+                        <a href="davyjones.me/cv">cv</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="intro-header" style="background-image: url('davyjones.me/img/post-bg.jpg')">
+    
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+             <div class="post-heading">
+               <h1>Creating a Private Package repository for Debian</h1>
+               <h2 class="subheading"></h2>
+               <span class="meta">
+                 
+  A 11 minute read,
+
+Posted by <a href="#">Davy Jones</a> on Thu, Sep 24, 2015
+<br />
+In <a href="davyjones.me/categories/how-to">How-To</a>
+
+<br />
+Tags <a href="davyjones.me/tags/debian">debian</a>, <a href="davyjones.me/tags/cli">cli</a>
+
+               </span>
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+
+    
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  
+
+<hr />
+
+<p><strong>Caveat</strong></p>
+
+<p>A lot of this article was nicked from a brilliant <a href="https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04">Digital Ocean article</a>.</p>
+
+<p>Go check out all their <a href="https://www.digitalocean.com/community/tutorials">tutorials</a> and while you&rsquo;re there why not <a href="https://cloud.digitalocean.com/registrations/new">sign up!</a></p>
+
+<hr />
+
+<h2 id="why-bother-creating-your-own-repository">Why bother creating your own repository?</h2>
+
+<p>So you want to host your own .deb packages to make is simple for users to install without the need for git or building from source?</p>
+
+<p>Read on&hellip;</p>
+
+<p>This guide goes through how to set up a Debian flavoured package repository. We are using <code>reprepro</code> to install the packages, <code>gpg</code> for security and either <code>nginx</code> or <code>apache</code> to serve it to the world.</p>
+
+<h2 id="create-and-publish-a-signing-key-with-gpg">Create and publish a Signing Key with GPG</h2>
+
+<h4 id="1-generate-a-master-key">1. Generate a Master Key</h4>
+
+<p>We firstly need to install a tool to help with generating entropy</p>
+
+<p><code>apt-get install rng-tools</code></p>
+
+<p>Start rngd dameon manually using:
+<code>rngd -r /dev/urandom</code></p>
+
+<p>By default rngd looks for a special device to retrieve entropy from /dev/hwrng. Some VMs do not have this device. To compensate we use the pseudo random device /dev/urandom by specifying the -r directive.</p>
+
+<p>Now we can generate the master key by invoking the gpg command like so:
+<code>gpg --gen-key</code></p>
+
+<pre><code>Please select what kind of key you want:
+ (1) RSA and RSA (default)
+ (2) DSA and Elgamal
+ (3) DSA (sign only)
+ (4) RSA (sign only)
+Your selection? 1
+</code></pre>
+
+<p>By selecting the first option, gpg will generate first a signing key, then an encryption key.</p>
+
+<pre><code>RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 4096
+Requested keysize is 4096 bits
+</code></pre>
+
+<p>The Debian project reccomends using 4096 bits for a signing key and Bigger is always better!</p>
+
+<pre><code>Please specify how long the key should be valid.
+       0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0) 0
+Key does not expire at all
+Is this correct? (y/N) y
+</code></pre>
+
+<p>Master keys do not normally have expiration dates, but set this value as long as you expect to use this key. If you only plan to use this repository for only the next 6 months you can specify 6m. 0 will make it valid forever.</p>
+
+<pre><code>You need a user ID to identify your key; the software constructs the user ID
+from the Real Name, Comment and Email Address in this form:
+    &quot;Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;&quot;
+    
+Real name: Tom Celic
+Email address: t@c.com
+Comment: You know...
+You selected this USER-ID:
+    &quot;Tom Celic (You know...) &lt;t@c.com&gt;&quot;
+    
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
+</code></pre>
+
+<p>You will need to input a passphrase now. Ensure you <strong>memorise this</strong> as there is no way to recover a gpg key.</p>
+
+<pre><code>You need a Passphrase to protect your secret key.
+
+Enter passphrase: (hidden)
+Repeat passphrase: (hidden)
+</code></pre>
+
+<p>It will now create a load of entropy to generate the key. Once it is done you will have your master key.</p>
+
+<pre><code>gpg: key 231E2BB7 marked as ultimately trusted
+public and secret key created and signed.
+   
+gpg: checking the trustdb
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+pub   4096R/231E2BB7 2015-09-22
+      Key fingerprint = AB5A 8BBB 2EFE F49B D36D  9554 BB48 C227 231E 2BB7
+uid                  Tom Celic (You know...) &lt;t@c.com&gt;
+sub   4096R/9C5F50AF 2015-09-22
+</code></pre>
+
+<p>Make a note of your signing key ID (231E2BB7 above). We will need this to create a subkey for it.</p>
+
+<h4 id="2-generate-a-subkey-to-sign-packages">2. Generate a Subkey to Sign Packages</h4>
+
+<p>Now we&rsquo;ll create a second signing key so that we don’t need the master key on this server. Think of the master key as the root authority that gives authority to subkeys. If a user trusts the master key, trust in a subkey is implied.</p>
+
+<p>In the terminal execute:</p>
+
+<p><code>gpg --edit-key 231E2BB7</code></p>
+
+<p>You will then get the following output:</p>
+
+<pre><code>gpg (GnuPG) 1.4.16; Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+pub  4096R/231E2BB7  created: 2015-09-22  expires: never       usage: SC  
+                     trust: ultimate      validity: ultimate
+sub  4096R/9C5F50AF  created: 2015-09-22  expires: never       usage: E   
+[ultimate] (1). Tom Celic (You know...) &lt;t@c.com&gt;
+</code></pre>
+
+<p>We now want to add a new key. type <code>addkey</code></p>
+
+<pre><code>gpg&gt; addkey
+Key is protected.
+
+You need a passphrase to unlock the secret key for
+user: &quot;Tom Celic (You know...) &lt;t@c.com&gt;&quot;
+4096-bit RSA key, ID 231E2BB7, created 2015-09-22
+
+gpg: gpg-agent is not available in this session
+</code></pre>
+
+<p>We then want an RSA sign-only key that is 4096 bits long and doesnt expire. <em>ideally we would want to put an expiration on this but do not have process in place to look into maintainance</em>:</p>
+
+<pre><code>Please select what kind of key you want:
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (5) Elgamal (encrypt only)
+   (6) RSA (encrypt only)
+Your selection? 4
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 4096
+Requested keysize is 4096 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0) 0
+Key does not expire at all
+Is this correct? (y/N) y
+Really create? (y/N) y
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+.....+++++
+.+++++
+
+pub  4096R/231E2BB7  created: 2015-09-22  expires: never       usage: SC  
+                     trust: ultimate      validity: ultimate
+sub  4096R/9C5F50AF  created: 2015-09-22  expires: never       usage: E   
+sub  4096R/3648C586  created: 2015-09-22  expires: never       usage: S   
+[ultimate] (1). Tom Celic (You know...) &lt;t@c.com&gt;
+</code></pre>
+
+<p>In the output above, the SC from our master key tells us that the key is only for signing and certification. The E means the key may only be used for encryption. Our signing key can be correctly seen with only the S.</p>
+
+<p>And finally we want to save. <code>gpg&gt; save</code></p>
+
+<h4 id="3-detach-master-key-fro-subkey">3. Detach Master Key fro Subkey</h4>
+
+<p>The point of creating the subkey is so we don&rsquo;t need the master key on our server, which makes it more secure. Now we&rsquo;ll detach our master key from our subkey. We will need to export the master key and subkey, then delete the keys from GPG&rsquo;s storage, then re-import just the subkey.</p>
+
+<p>First let&rsquo;s use the <code>--export-secret-key</code> and <code>--export</code> commands to export the whole key. Remember to use your master key&rsquo;s ID!</p>
+
+<pre><code>gpg --export-secret-key 231E2BB7 &gt; private.key
+gpg --export 231E2BB7 &gt;&gt; private.key
+</code></pre>
+
+<p>By default &ndash;export-secret-key and &ndash;export will print the key to our console, so instead we pipe the output to a new file (private.key). Make sure to specify your own master key ID, as noted above.</p>
+
+<p><strong>Make a copy of the private.key file somewhere safe</strong></p>
+
+<p><strong>ONce you have backed up this file, kill it</strong></p>
+
+<p><code>rm private.key</code></p>
+
+<p>Now export your public key and your subkey. Make sure to change the IDs to match the master key and the second subkey that you generated (don&rsquo;t use the first subkey)</p>
+
+<pre><code>gpg --export 231E2BB7 &gt; public.key
+gpg --export-secret-subkeys 3648C586 &gt; signing.key
+</code></pre>
+
+<p>Now we have backups of all keys we can remove the master key from the server.</p>
+
+<p><code>gpg --delete-secret-key 231E2BB7</code></p>
+
+<p>And then reimport only our signing subkey</p>
+
+<p><code>gpg --import public.key signing.key</code></p>
+
+<p>Now we want to clean up the keys:</p>
+
+<p><code>rm public.key signing.key</code></p>
+
+<p>And now we should publish the signing keyto keyserver.ubuntu.com</p>
+
+<p><code>gpg --keyserver keyserver.ubuntu.com --send-key 2648C586</code></p>
+
+<p>This command publishes your key to a public storehouse of keys – in this case Ubuntu’s own key server.
+This allows others to download your key and easily verify your packages.</p>
+
+<h2 id="set-up-repository-with-reprepro">Set up Repository With Reprepro</h2>
+
+<h3 id="1-install-and-configure-reprepro">1. Install and configure Reprepro</h3>
+
+<p>You can get reprepro from most debian flavoured repos</p>
+
+<pre><code>apt-get update
+apt-get install reprepro
+</code></pre>
+
+<p>Configuration for Reprepro is repository-specific, meaning you can have different configurations if you make multiple repositories. Let&rsquo;s first make a home for our repository.</p>
+
+<p>Make a dedicated folder for this repository and move to it.</p>
+
+<pre><code>mkdir -p /var/repos/
+cd /var/repos/
+</code></pre>
+
+<p>Create a configuration directory
+<code>mkdir conf &amp;&amp; cd conf/</code></p>
+
+<p>Create two config file (options and distributions)
+<code>touch options distributions</code></p>
+
+<p>Edit options with the following</p>
+
+<pre><code>ask-passphrase
+verbose
+</code></pre>
+
+<p>Edit the distributions file with the following:</p>
+
+<pre><code>Origin: Ubuntu
+Label: LiveLink 615 Repository
+Codename: trusty
+Components: main
+Architectures: i386 amd64
+SignWith: 3648C586
+</code></pre>
+
+<p>The Codename directive directly relates to the code name of the released Debian distributions and is required. This is the code name for the distribution that will be downloading packages, and doesn&rsquo;t necessarily have to match the distribution of this server. For example, the Ubuntu 14.04 LTS release is called trusty, Ubuntu 12.04 LTS is called precise, and Debian 7.6 is known as wheezy. This repository is for Ubuntu 14.04 LTS so trusty should be set here.</p>
+
+<p>The Components field is required. This is only a simple repository so set main here. There are other namespaces such as “non−free” or “contrib” – refer to apt-get for proper naming schemes.</p>
+
+<p>Architectures is another required field. This field lists binary architectures within this repository separated by spaces. This repository will be hosting packages for 32-bit and 64-bit servers, so i386 amd64 is set here. Add or remove architectures as you need them.</p>
+
+<p>To specify how other computers will verify our packages we use the SignWith directive. This is an optional directive, but required for signing. The signing key earlier in this example had the ID 3648C586, so that is set here. Change this field to match the subkey’s ID that you generated.</p>
+
+<h3 id="2-add-a-package-with-reprepro">2. Add a Package with Reprepro</h3>
+
+<p><code>reprepro -b /var/repos includedeb trusty package-name.deb</code></p>
+
+<p>enter passwords</p>
+
+<h3 id="3-listing-and-deleting">3. Listing and Deleting</h3>
+
+<p>We can list the managed packages with the list command followed by the codename. For example:</p>
+
+<pre><code>reprepro -b /home/vhosts/repositories/ list trusty
+
+trusty|main|i386: example-helloworld 1.0.0.0
+trusty|main|amd64: example-helloworld 1.0.0.0
+</code></pre>
+
+<p>To delete a package, use the remove command. The remove command requires the codename of the package, and the package name. For example:</p>
+
+<p><code>reprepro -b /home/vhosts/repositories/ remove trusty example-helloworld</code></p>
+
+<h3 id="4-make-the-repository-public">4. Make the Repository Public</h3>
+
+<p>This depends on whether the server you are hosting this from is running apache2 or nginx. Both methods will be explained</p>
+
+<h4 id="1-apache">1. Apache</h4>
+
+<p>Install Apache if not available</p>
+
+<pre><code>apt-get update
+apt-get install apache2
+</code></pre>
+
+<p>Create new VirtualHost in <code>/etc/apache2/sites-available</code></p>
+
+<p><code>vim repository.example.com</code></p>
+
+<p>Input the following config:</p>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+ServerName repository.example.com
+ServerAlias www.repository.example.com
+LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-agent}i\&quot; %I %O&quot; combinedio
+DocumentRoot /home/vhosts/repositories/
+
+&lt;Directory /home/vhosts/repositories/&gt;
+       Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+&lt;/Directory&gt;
+
+&lt;Directory &quot;/home/vhosts/repositories/db/&quot;&gt;
+  Order allow,deny
+  Deny from all
+&lt;/Directory&gt;
+
+&lt;Directory &quot;/home/vhosts/repositories/conf/&quot;&gt;
+  Order allow,deny
+  Deny from all
+&lt;/Directory&gt;
+
+ErrorLog /home/vhosts/repositories/log/repo_error.log
+LogLevel warn
+CustomLog /home/vhosts/repositories/log/repo_access.log combinedio
+</code></pre>
+
+<p>Enable the site (this creates a symlink from sites-available to sites-enabled)</p>
+
+<p><code>a2ensite repository.example.com</code></p>
+
+<p>Reload the apache2 config, check it, then restart apache</p>
+
+<pre><code>service apache2 reload
+
+apache2ctl configtest
+
+service apache2 restart
+</code></pre>
+
+<h4 id="2-nginx">2. nginx</h4>
+
+<p>Install Ngnix if not available</p>
+
+<pre><code>apt-get update
+apt-get install ngnix
+</code></pre>
+
+<p>Now let&rsquo;s create a new host in /etc/nginx/sites-available</p>
+
+<p><code>vim repository.example.com</code></p>
+
+<p>And enter the following config bits</p>
+
+<pre><code>server {
+    listen       80;
+    server_name  www.repository.example.com repository.example.com;
+    root   /home/vhosts/repositories/;
+
+    access_log /home/vhosts/repositories/log/repo.access.log
+    error_log /home/vhosts/repositories/log/repo.error.log
+    
+    location ~ /(db|conf) {
+      deny        all;
+      return      404;
+    }
+}
+</code></pre>
+
+<p>Restart nginx</p>
+
+<p><code>service nginx restart</code></p>
+
+<p>Sort out DNS</p>
+
+<p>Done, we are all good to go.</p>
+
+<h2 id="install-package-from-the-repo">Install Package from the Repo!</h2>
+
+<p>We are now ready to test that our new repo can be pulled from.</p>
+
+<p>On the new server, download your public key to verify the packages from your repository. Recall that you published your key to keyserver.ubuntu.com.</p>
+
+<p>This is done with the apt-key command.</p>
+
+<p><code>apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 2DB65792</code></p>
+
+<p>This command downloads the specified key and adds the key to the apt-get database. The adv command tells apt-key to use GPG to download the key. The other two arguments are passed directly to GPG. Since you uploaded your key to “keyserver.ubuntu.com” use the &ndash;keyserver keyserver.ubuntu.com directive to retrived the key from the same location. The &ndash;recv-keys <key ID> directive specifies the exact key to add.</p>
+
+<p>Now add the repository&rsquo;s address for apt-get to find. You&rsquo;ll need your repository server&rsquo;s IP address from the previous step. This is easily done with the add-apt-repository program.</p>
+
+<p><code>add-apt-repository &quot;deb http://repository.example.com/ trusty main&quot;</code></p>
+
+<p>The repository location should be set to the location of your server. We have an HTTP server so the protocol is http://. The example’s location was repository.example.com. Our server’s code name is trusty. This is a simple repository, so we called the component &ldquo;main&rdquo;.</p>
+
+<p>After we add the repository, make sure to run an apt-get update. This command will check all the known repositories for updates and changes (including the one you just made).</p>
+
+<p>Now run <code>apt-get update</code> and you will be good to go.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04</a></li>
+<li><a href="https://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support">https://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support</a></li>
+<li><a href="https://www.debian-administration.org/article/513/Restrict_Access_To_Your_Private_Debian_Repository">https://www.debian-administration.org/article/513/Restrict_Access_To_Your_Private_Debian_Repository</a></li>
+<li><a href="http://vincent.bernat.im/en/blog/2014-local-apt-repositories.html">http://vincent.bernat.im/en/blog/2014-local-apt-repositories.html</a></li>
+<li><a href="http://santi-bassett.blogspot.co.uk/2014/07/setting-up-apt-repository-with-reprepro.html">http://santi-bassett.blogspot.co.uk/2014/07/setting-up-apt-repository-with-reprepro.html</a></li>
+</ul>
+
+                  
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                    
+                      <li>
+                        <a href="mailto:davy.jones@me.com">
+                          <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                          </span>
+                        </a>
+                      </li>
+                    
+                    
+                    <li>
+                      <a href="https://twitter.com/opsdavy">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://github.com/davyj0nes">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                  <p class="copyright text-muted">Code released under the Apache 2.0 license.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="davyjones.me/js/jquery.min.js"></script>
+
+    
+    <script src="davyjones.me/js/bootstrap.min.js"></script>
+
+    
+    <script src="davyjones.me/js/clean-blog.js"></script>
+
+    
+
+</body>
+
+</html>
+
