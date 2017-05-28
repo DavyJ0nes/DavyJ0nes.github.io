@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>How To on Tech Life Balance</title>
-    <link>https://davyj0nes.github.io/categories/how-to/</link>
-    <description>Recent content in How To on Tech Life Balance</description>
+    <title>Blog on Tech Life Balance</title>
+    <link>https://davyj0nes.github.io/categories/blog/</link>
+    <description>Recent content in Blog on Tech Life Balance</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
     <lastBuildDate>Tue, 13 Oct 2015 23:00:20 +0100</lastBuildDate>
     
-	<atom:link href="https://davyj0nes.github.io/categories/how-to/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://davyj0nes.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
