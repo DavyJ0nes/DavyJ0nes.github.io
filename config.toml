@@ -1,0 +1,39 @@
+baseurl = "davyjones.me"
+title = "Tech Life Balance"
+publishDir = "public"
+canonifyurls = true
+paginate = 10
+languageCode = "en-us"
+copyright = "Code released under the Apache 2.0 license."
+# googleAnalytics = "UA-123-45" # delete or comment to disable Google Analytics JS generation
+# disqusShortname = "YourDisqusShortname" #delete or comment to disable Disqus comments
+
+[author]
+	name = "Davy Jones"
+
+[params]
+	DateForm = "Mon, Jan 2, 2006"
+	Author = "Davy Jones"
+	email = "davy.jones@me.com" #Remove this line if you would prefer not to use an email button in the footer.
+	postSummariesFrontPage = 4 #Number of post summaries to show on front page, comment out to allow default(4)
+	showReadTime = true #set to false to exclude read time from header of post
+
+[[params.social]]
+	title = "twitter"
+	url = "https://twitter.com/opsdavy"
+[[params.social]]
+	title = "github"
+	url = "https://github.com/davyj0nes"
+
+[[menu.main]]
+	name = "home"
+	url = "/"
+	weight = -200
+[[menu.main]]
+	name = "blog"
+	url = "/post/"
+	weight = -180
+[[menu.main]]
+  name = "cv"
+  url = "/cv"
+  weight = -160
