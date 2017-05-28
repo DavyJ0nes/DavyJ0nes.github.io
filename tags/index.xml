@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Tech Life Balance</title>
-    <link>http://davyjones.me/tags/</link>
+    <link>https://davyj0nes.github.io/tags/</link>
     <description>Recent content in Tags on Tech Life Balance</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
     <lastBuildDate>Sun, 07 May 2017 14:13:28 +0100</lastBuildDate>
     
-	<atom:link href="http://davyjones.me/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://davyj0nes.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Burnout</title>
-      <link>http://davyjones.me/tags/burnout/</link>
+      <link>https://davyj0nes.github.io/tags/burnout/</link>
       <pubDate>Sun, 07 May 2017 14:13:28 +0100</pubDate>
       
-      <guid>http://davyjones.me/tags/burnout/</guid>
+      <guid>https://davyj0nes.github.io/tags/burnout/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cli</title>
-      <link>http://davyjones.me/tags/cli/</link>
+      <link>https://davyj0nes.github.io/tags/cli/</link>
       <pubDate>Tue, 13 Oct 2015 23:00:20 +0100</pubDate>
       
-      <guid>http://davyjones.me/tags/cli/</guid>
+      <guid>https://davyj0nes.github.io/tags/cli/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Debian</title>
-      <link>http://davyjones.me/tags/debian/</link>
+      <link>https://davyj0nes.github.io/tags/debian/</link>
       <pubDate>Thu, 24 Sep 2015 12:04:06 +0100</pubDate>
       
-      <guid>http://davyjones.me/tags/debian/</guid>
+      <guid>https://davyj0nes.github.io/tags/debian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Term</title>
-      <link>http://davyjones.me/tags/term/</link>
+      <link>https://davyj0nes.github.io/tags/term/</link>
       <pubDate>Tue, 13 Oct 2015 23:00:20 +0100</pubDate>
       
-      <guid>http://davyjones.me/tags/term/</guid>
+      <guid>https://davyj0nes.github.io/tags/term/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tmux</title>
-      <link>http://davyjones.me/tags/tmux/</link>
+      <link>https://davyj0nes.github.io/tags/tmux/</link>
       <pubDate>Thu, 10 Sep 2015 17:02:38 +0100</pubDate>
       
-      <guid>http://davyjones.me/tags/tmux/</guid>
+      <guid>https://davyj0nes.github.io/tags/tmux/</guid>
       <description></description>
     </item>
     

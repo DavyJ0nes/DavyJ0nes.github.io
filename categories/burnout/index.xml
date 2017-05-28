@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Burnout on Tech Life Balance</title>
-    <link>http://davyjones.me/categories/burnout/</link>
+    <link>https://davyj0nes.github.io/categories/burnout/</link>
     <description>Recent content in Burnout on Tech Life Balance</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
     <lastBuildDate>Sun, 07 May 2017 14:13:28 +0100</lastBuildDate>
     
-	<atom:link href="http://davyjones.me/categories/burnout/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://davyj0nes.github.io/categories/burnout/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>On Burnout</title>
-      <link>http://davyjones.me/post/on-burnout/</link>
+      <link>https://davyj0nes.github.io/post/on-burnout/</link>
       <pubDate>Sun, 07 May 2017 14:13:28 +0100</pubDate>
       
-      <guid>http://davyjones.me/post/on-burnout/</guid>
+      <guid>https://davyj0nes.github.io/post/on-burnout/</guid>
       <description>Disclaimer  Before we get into this please be aware that this is all centered around my experiences and is published to hopefully be of help to other who may have gone through something similar (including future me ;) ). I am not a mental health expert.
  The Incident The Harvard Business Review describes burnout as a slow fizzle, generally it is not something that you are aware is happening until it blows up in your face.</description>
     </item>
