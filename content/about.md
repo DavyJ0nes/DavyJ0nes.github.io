@@ -2,7 +2,7 @@
 categories = ["about"]
 comments = false
 date = "2017-05-07T13:25:01+01:00"
-draft = true
+draft = false
 menu = "main"
 tags = ["about"]
 title = "About"

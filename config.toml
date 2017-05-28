@@ -33,7 +33,3 @@ copyright = "Code released under the Apache 2.0 license."
 	name = "blog"
 	url = "/post/"
 	weight = -180
-[[menu.main]]
-  name = "cv"
-  url = "/cv"
-  weight = -160
