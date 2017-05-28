@@ -2,7 +2,7 @@
 categories = ["cv"]
 comments = false
 date = "2017-05-28T08:33:42+01:00"
-draft = true
+draft = false
 menu = "main"
 showcomments = true
 showpagemeta = true

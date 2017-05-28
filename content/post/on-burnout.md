@@ -1,7 +1,8 @@
 +++
-categories = ["burnout"]
+categories = ["blog"]
 date = "2017-05-07T14:13:28+01:00"
 description = ""
+draft = true
 tags = ["burnout"]
 title = "On Burnout"
 
@@ -35,12 +36,16 @@ The **Tuesday** following the incident I went to the doctors to look at my finge
 
 **Two weeks after** the incident and I had not looked at my work emails once, I had been meditating for 10mins every day, exercising more, started reading some non work related books, was cooking more and the aftershock panic attacks were lessening.
 
-After **Three weeks** and with the time of my doctor authorised sick leave drawing to a close I reached out to my colleague and friend who I had ranted to so that we could catch up over a drink and try to just be mates for a couple hours without having to talk about what had happened.
+After **Three weeks** and with the time of my doctor authorised sick leave drawing to a close I reached out to my colleague and friend who I had ranted to so that we could catch up over a drink and try to just be mates for a couple hours without having to talk about what had happened. This was really good and having the separation between work and personal was good.
+
+I am now back full-time. I have made a conscious effort to give up some of the control within the company to others in the team, this has been hard and is a constant struggle because I can be a control freak but it means that others have to step up. The balance of work has changed too and I am trying to work on more proactive projects work rather than reactive work. This gives me the dopamine hit that I have completed something of worth and in the long run provides better value to the company.
+
+Surprisingly there hasn't been any catch up or review with any of my managers apart from a casual, "how you doing? Ready to come back?". This is frustrating but reinforces the realisation that no-one is going to help you but yourself.
 
 # Conclusions
 
 ### You Shouldn't Feel Embarrassed
-Taking time off work due to stress related illnesses can be really embarrassing. Feeling like you are weak, or a failure, or that you are letting people down is natural for the personality types that are susceptible to burning out. Throughout my  
+Taking time off work due to stress related illnesses can be really embarrassing. Feeling like you are weak, or a failure, or that you are letting people down is natural for the personality types that are susceptible to burning out. But this is part of the problem and cause of burning out, give yourself a break, acknowledge your successes and don't shy away from
 
 ### A Job Is Just A Job
 It is absurd to think that a job should define who you are. I could associate most things that I did or was interested in to my job or career during the lead up to when I blacked out. Most companies don't expect that so why should you put that on yourself
@@ -53,10 +58,10 @@ As an example let's say that a colleague is fretting over a client request, they
 ### It Just Takes Time
 There doesn't seem to be any shortcuts in moving forward after a burn out. From talking to others who have gone through similar episodes you're never able to return to how you were and it can take a very long time, even years, to regain the same passion and love that you used to have for your work.
 
-Two months after the incident it is a struggle at times to get into the frame of mind to work on technical problems and write code, which I used to really enjoy and had a lot of passion for.
+Two months after the incident it is a struggle at times to get into the frame of mind to work on technical problems and write code, which I used to really enjoy and had a lot of passion for. I still have panic attacks, that are mostly triggered by social situations and I constantly worry about my career and if I'm in the right environment to improve.
 
 ### Protect Yourself Because No One Else Is Going To Do It For You
-It's very rare to have colleagues or managers care that you burnt out or even understand what burn out is.
+It's very rare to have colleagues or managers care that you burnt out or even understand what burn out is. This means that unless you are fortunate enough to work with good managers then you are going to have to look after yourself and to not fall back into old habits that will lead to the same conclusion.
 
 ### The Root Of the Problem is Imposter Syndrome
 For me personally the largest contributing factor to my burn out was the constant feeling that I am not good enough and that the only way to validate my knowledge and worth was to work, learn and level up all the time. Otherwise known as [Imposter Syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome) this fear of being found out can be a great motivator but taken too far it can eat you up inside and never allow you to give yourself credit for the good work you have done.
