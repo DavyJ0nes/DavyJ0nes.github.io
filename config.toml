@@ -1,4 +1,4 @@
-baseurl = "davyjones.me"
+baseurl = "https://davyj0nes.github.io"
 title = "Tech Life Balance"
 publishDir = "public"
 canonifyurls = true
