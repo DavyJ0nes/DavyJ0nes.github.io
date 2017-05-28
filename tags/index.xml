@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
-    <lastBuildDate>Sun, 07 May 2017 14:13:28 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 07 May 2017 13:25:01 +0100</lastBuildDate>
     
 	<atom:link href="https://davyj0nes.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://davyj0nes.github.io/tags/about/</link>
+      <pubDate>Sun, 07 May 2017 13:25:01 +0100</pubDate>
+      
+      <guid>https://davyj0nes.github.io/tags/about/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Burnout</title>
@@ -27,6 +36,15 @@
       <pubDate>Tue, 13 Oct 2015 23:00:20 +0100</pubDate>
       
       <guid>https://davyj0nes.github.io/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cv</title>
+      <link>https://davyj0nes.github.io/tags/cv/</link>
+      <pubDate>Sun, 28 May 2017 08:33:42 +0100</pubDate>
+      
+      <guid>https://davyj0nes.github.io/tags/cv/</guid>
       <description></description>
     </item>
     

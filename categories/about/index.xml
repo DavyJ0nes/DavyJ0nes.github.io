@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Tech Life Balance</title>
+    <link>https://davyj0nes.github.io/categories/about/</link>
+    <description>Recent content in About on Tech Life Balance</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Code released under the Apache 2.0 license.</copyright>
+    <lastBuildDate>Sun, 07 May 2017 13:25:01 +0100</lastBuildDate>
+    
+	<atom:link href="https://davyj0nes.github.io/categories/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://davyj0nes.github.io/about/</link>
+      <pubDate>Sun, 07 May 2017 13:25:01 +0100</pubDate>
+      
+      <guid>https://davyj0nes.github.io/about/</guid>
+      <description>Who Am I { &amp;quot;name&amp;quot;: &amp;quot;Davy Jones&amp;quot;, &amp;quot;location&amp;quot;: &amp;quot;UK&amp;quot;, &amp;quot;company&amp;quot;: &amp;quot;Forge Special Projects&amp;quot;, &amp;quot;role&amp;quot;: [ &amp;quot;Infrastructure Engineer&amp;quot;, &amp;quot;Development Team Co-Lead&amp;quot; ], &amp;quot;interests&amp;quot;: [ &amp;quot;Linux Operating Systems&amp;quot;, &amp;quot;vim&amp;quot;, &amp;quot;Elasticsearch&amp;quot;, &amp;quot;Monitoring Systems&amp;quot;, &amp;quot;Wi-Fi Networking&amp;quot;, &amp;quot;Coffee&amp;quot;, &amp;quot;Camping/Hiking&amp;quot;, &amp;quot;Rock Climbing&amp;quot; ], &amp;quot;recent_reads&amp;quot;: [ { &amp;quot;title&amp;quot;: &amp;quot;Ansible for DevOps&amp;quot;, &amp;quot;author&amp;quot;: &amp;quot;Jeff Geerling&amp;quot;, &amp;quot;url&amp;quot;: &amp;quot;https://leanpub.com/ansible-for-devops&amp;quot; }, { &amp;quot;title&amp;quot;: &amp;quot;Systems Performance&amp;quot;, &amp;quot;author&amp;quot;: &amp;quot;Brendan Gregg&amp;quot;, &amp;quot;url&amp;quot;: &amp;quot;http://www.brendangregg.com/sysperfbook.html&amp;quot; }, { &amp;quot;title&amp;quot;: &amp;quot;Skunk Works: A Personal Memoir of My Years at Lockheed&amp;quot;, &amp;quot;author&amp;quot;: &amp;quot;Ben R.</description>
+    </item>
+    
+  </channel>
+</rss>

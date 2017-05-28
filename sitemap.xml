@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://davyj0nes.github.io/about/</loc>
+    <lastmod>2017-05-07T13:25:01+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davyj0nes.github.io/cv/</loc>
+    <lastmod>2017-05-28T08:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://davyj0nes.github.io/post/on-burnout/</loc>
     <lastmod>2017-05-07T14:13:28+01:00</lastmod>
   </url>
@@ -22,8 +32,14 @@
   </url>
   
   <url>
-    <loc>https://davyj0nes.github.io/tags/burnout/</loc>
-    <lastmod>2017-05-07T14:13:28+01:00</lastmod>
+    <loc>https://davyj0nes.github.io/categories/about/</loc>
+    <lastmod>2017-05-07T13:25:01+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davyj0nes.github.io/tags/about/</loc>
+    <lastmod>2017-05-07T13:25:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -34,14 +50,32 @@
   </url>
   
   <url>
-    <loc>https://davyj0nes.github.io/categories/</loc>
+    <loc>https://davyj0nes.github.io/tags/burnout/</loc>
     <lastmod>2017-05-07T14:13:28+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davyj0nes.github.io/categories/</loc>
+    <lastmod>2017-05-07T13:25:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davyj0nes.github.io/tags/cli/</loc>
     <lastmod>2015-10-13T23:00:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davyj0nes.github.io/categories/cv/</loc>
+    <lastmod>2017-05-28T08:33:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davyj0nes.github.io/tags/cv/</loc>
+    <lastmod>2017-05-28T08:33:42+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -65,13 +99,13 @@
   
   <url>
     <loc>https://davyj0nes.github.io/tags/</loc>
-    <lastmod>2017-05-07T14:13:28+01:00</lastmod>
+    <lastmod>2017-05-07T13:25:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davyj0nes.github.io/</loc>
-    <lastmod>2017-05-07T14:13:28+01:00</lastmod>
+    <lastmod>2017-05-07T13:25:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
