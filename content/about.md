@@ -19,10 +19,7 @@ weight = -190
   "name": "Davy Jones",
   "location": "UK",
   "company": "Forge Special Projects",
-  "role": [
-    "Infrastructure Engineer",
-    "Development Team Co-Lead"
-  ],
+  "role": "Infrastructure Engineer",
   "interests": [
     "Linux Operating Systems",
     "vim",
