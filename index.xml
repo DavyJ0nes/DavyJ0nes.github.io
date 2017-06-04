@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>Setting Up Git and Vim For Chef</title>
+      <link>https://davyj0nes.github.io/post/setting-up-vim-for-chef/</link>
+      <pubDate>Sun, 04 Jun 2017 07:49:16 +0100</pubDate>
+      
+      <guid>https://davyj0nes.github.io/post/setting-up-vim-for-chef/</guid>
+      <description>Overview Recently I have started writing Chef cookbooks again. Chef is an immensely powerful tool for configuration management and infrastructure automation. You can find more information about Chef here.
+My text editor of choice is Vim. The main reason is that is always available on pretty much any Unix based OS, I love the modular nature of it and there is a level of mysticism to it that I secretly love (I feel it makes me a bit more legit!</description>
+    </item>
+    
+    <item>
       <title>Teminal Not Functioning Error</title>
       <link>https://davyj0nes.github.io/post/teminal-not-functioning-error/</link>
       <pubDate>Tue, 13 Oct 2015 23:00:20 +0100</pubDate>
